@@ -1,0 +1,162 @@
+label.required.fs-6.mb-2 {
+    color: #000 !important;
+}
+
+input, select{
+    border-radius: 15px !important;
+   
+}
+
+.form-control.form-control-solid{
+    background-color: #fff !important;
+    border: 1px solid #ededed !important;
+    font-size: 16px;
+    line-height: 120%;
+    color: #000 !important;
+}
+
+.act-dis{
+    border-radius: 16px;
+    background-color:  #fff !important;
+    border: 2px solid #ededed  !important;
+    box-sizing: border-box;
+    justify-content: center;
+    padding: 12px;
+    min-width: 196px;
+    max-width: 200px;
+    text-align: center;
+    font-size: 16px;
+    color: #231f20 !important;
+    font-weight: 600 !important;
+}
+
+.indicator-label{
+    font-size: 16px;
+line-height: 120%;
+color: #fff;
+text-align: center;
+font-weight: 600 !important;
+}
+
+.act-sub{
+    border-radius: 16px;
+    background-color: #db297b;
+    border: 1px solid #c56bb3;
+    box-sizing: border-box;
+    width: 100%;
+    justify-content: center;
+    padding: 12px;
+    min-width: 196px;
+    max-width: 200px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500 !important;
+}
+
+.ck.ck-reset{
+    background:#fff !important ;
+}
+
+.ck.ck-toolbar.ck-toolbar_grouping {
+    background: #fff !important;
+}
+
+.ck-blurred.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline {
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #ededed !important;
+}
+
+.ck-blurred.ck.ck-content.ck-editor__editable.ck-rounded-corners.ck-editor__editable_inline:focus {
+    border-radius: 15px;
+background: #fff;
+border: 1px solid #ededed !important;
+}
+
+.form-control.form-control-solid:focus{
+    background-color: #fff !important;
+    border: 1px solid #ededed !important;
+}
+
+
+
+.edit{
+    font-size: 28px;
+    line-height: 120%;
+    color: #db297b;
+    text-align: left;
+}
+
+
+
+/* Partners */
+
+.web-site-name{
+    width: 250px;
+    font-size: 16px;
+    line-height: 120%;
+    color: #231f20;
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.view-site{
+    font-size: 13px;
+    line-height: 120%;
+    color: #959394;
+    text-align: left;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.site-link{
+    font-size: 16px;
+    line-height: 120%;
+    color: #231f20 !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.new-part-btn{
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.4);
+    border-radius: 16px;
+    background-color: #db297b;
+    border:2px solid #c56bb3 !important;
+    box-sizing: border-box;
+    font-weight: 600 !important;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    gap: 16px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+
+}
+
+.part-Title{
+    font-size: 28px;
+    line-height: 120%;
+    color: #db297b !important;
+}
+
+
+/* Promotions */
+
+.card-title1{
+    font-size: 28px;
+    line-height: 120%;
+    font-weight: 600;
+    color: #959394;
+    text-align: left;
+}

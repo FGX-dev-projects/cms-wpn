@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --primary-font: 'Montserrat', sans-serif;
+    --secondary-font: 'Montserrat', sans-serif;
+    --primaryDark:#ededed;
+    --primaryGray: #E7E1E0;
+    --primaryLight:#E7E1E0;
+    --secondaryGray:#f5f5f5;
+    --textSize:20px;
+    --textFontWeight:300;
+    --mainGradient: linear-gradient(90deg, #FF2388 0%, #FF66CC 38.03%, #DC96DC 68.13%, #FFD700 100%);
+    --mainGradientHover: linear-gradient(90deg, #FFD700 0%, #DC96DC 38.03%, #FF66CC 68.13%, #FF2388 100%);
+    --gradientText:linear-gradient(90deg, #FFD700 0%, #DC96DC 38.03%, #FF66CC 68.13%, #FF2388 100%);
+    --secondaryGradient: linear-gradient(180deg, #876AB6 0%, #DA71E4 34.38%, #A7A3B6 68.23%, #9ECB4C 100%);
+    --secondaryGradientHover: linear-gradient(180deg, #9ECB4C 0%, #A7A3B6 34.38%, #DA71E4 68.23%, #876AB6 100%);
+    --thirdGradient: linear-gradient(180deg, #6E9B88 0%, #BBB73B 38.03%, #D19F36 68.13%, #E7713F 100%);
+    --thirdGradientHover: linear-gradient(180deg, #E7713F 0%, #D19F36 38.03%, #BBB73B 68.13%, #6E9B88 100%);
+    --primary-color:#db297b;
+    --brand-primary-alt-color:#ff3ba0;
+    --brand-primary-color:#ff3ba0;
+}
+
+body, html{
+    font-family: var(--primary-font);
+    font-size: 14px;
+    font-weight: 500;
+    position: relative;
+}
+.app-default, body {
+    background: var(--primaryDark);
+    color:#fff;
+
+}
+.app-content {
+    box-shadow: none;
+    background: var(--primaryDark);
+}
+.card{
+    background: var(--primaryDark);
+    color:#fff;
+}
+.modal-content{
+    background: #fff;
+}
+.app-header{
+    background: var(--primaryDark);
+}
+.menu-sub-dropdown{
+    background: #000;
+}
+.btn.btn-icon i{
+    background: var(--gradientText);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
+a{
+    
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    
+}
+.table th{
+    font-weight: 600;
+    color: #7b7979 !important;
+    border-bottom: 1px solid #000 !important;
+    font-size: 13px;
+}
+
+a:hover{
+    background: none!important;
+    -webkit-text-fill-color: unset!important;
+    -webkit-background-clip: unset!important;
+    color:#000!important;
+}
+.app-header-menu .menu>.menu-item.show>.menu-link .menu-title:hover {
+    color:#fff!important;
+}
+
+.modal-header h2{
+    
+}
+
+table{
+    color:#fff!important;
+}
+[data-kt-app-header-sticky="on"] .app-header {
+    background:#000;
+}
+.symbol .symbol-label {
+    background: #bfbfbf;
+}
+.btn-light{
+    background: var(--primaryDark)!important;
+    color:#fff!important;
+
+    -webkit-text-fill-color: unset!important;
+    -webkit-background-clip: unset!important;
+    border:1px solid #ffff!important;
+}
+.btn-light:hover{
+    background: #000!important;
+    color:#000!important;
+}
+.form-control.form-control-solid{
+    background: var(--primaryDark)!important;
+    border-radius: 0;
+    color:#fff;
+}
+.form-check-input:checked {
+    background-color: var(--mainGradient);
+    border-color: var(--brand-primary-color);
+}
+.dropdown.show > .form-control.form-control-solid, .form-control.form-control-solid.active, .form-control.form-control-solid.focus, .form-control.form-control-solid:active, .form-control.form-control-solid:focus {
+    background-color: var(--primaryDark)!important;
+    border-color: var(--kt-input-solid-bg-focus);
+    color:#fff;
+    transition: none;
+}
+.ck.ck-editor__main > .ck-editor__editable {
+    background-color: var(--primaryDark)!important;
+}
+.ck.ck-editor__main > .ck-editor__editable *{
+    color:#000 !important;
+}
+table{
+    color:#ffffff!important;
+}
+
+textarea{
+    background: var(--primaryDark);
+}
+.fw-semibold {
+    font-weight: 400 !important;
+}
+.app-toolbar{
+    background: var(--mainGradient);
+    color: #000;
+    position: relative;
+    z-index: -1;
+}
+.app-content {z-index:1;}
+
+.modal {
+    background: rgba(0, 0, 0, 0.5);
+}
+.modal-backdrop {
+    display: none;
+}
+
+.h-md-50{ height: auto!important;}
+.btn.btn-primary {
+    color: var(--primaryDark);
+    border-color: var(--mainGradient);
+    background: var(--mainGradient);
+}
+
+.btn.btn-primary:active:not(.btn-active){
+    color: var(--primaryDark);
+    border-color: var(--mainGradient)!important;
+    background: var(--mainGradient)!important;
+}
+.btn.btn-light-primary:hover:not(.btn-active),
+.btn.btn-primary:hover:not(.btn-active) {
+    color: var(--primaryDark)!important;
+    border-color: var(--primaryDark)!important;
+    background: var(--mainGradientHover) !important;
+}
+.btn.btn-light-primary {
+    color: var(--mainGradient);
+}
+.text-primary {
+    color: var(--primaryDark)!important;
+}
+.form-check-custom.form-check-solid .form-check-input:checked {
+    background-color: var(--primaryDark);
+}
+.ck.ck-toolbar{
+    border: 1px solid #ededed !important;
+    border-bottom: 0px !important;
+    background: var(--primaryDark)!important;
+    color:#fff!important;
+}
+.ck.ck-icon, .ck.ck-icon {
+    background: var(--gradientText)!important;
+    -webkit-text-fill-color: transparent!important;
+    -webkit-background-clip: text!important;
+}
+table tr th{
+    color: #fff!important;
+}
+#particles{
+position: absolute;
+width: 100%;
+}
+canvas{
+    height:400px;
+    width: 100%;
+    background-color:transparent;
+    /*position: absolute;*/
+    z-index: 9999;
+}
+.scrolltop{ background-color: var(--mainGradient);  color:#000!important; }
+.scrolltop:hover { background-color: var(--brand-primary-alt-color); color:#000!important;}
+.scrolltop .svg-icon { color:#000!important; }
+
+
+.navbar-toggler {
+    border-radius: 0;
+    border:1px solid var(--primary-color);
+    box-shadow: none!important;
+}
+

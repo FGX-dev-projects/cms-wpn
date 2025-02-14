@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --brand-primary-color: #fbfb01;
+    --brand-primary-alt-color: #f2f22c;
+    --secondary-green: rgba(60, 170, 51, .3);
+    --fc-event-border-color: #008c82;
+    --fc-event-bg-color: #008c82;
+    --fc-event-text-color: #32a52a;
+    --fc-event-border-color: #008c82;
+    --fc-event-bg-color: #008c82;
+}
+body, html{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+.app-toolbar{
+    background: var(--brand-primary-alt-color);
+    color: #000;
+    position: relative;
+    z-index: -1;
+}
+#particles{
+position: absolute;
+width: 100%;
+}
+canvas{
+    height:400px;
+    width: 100%;
+    background-color:transparent;
+    /*position: absolute;*/
+    z-index: 9999;
+}
+.scrolltop{ background-color: var(--brand-primary-color);  color:#000!important; }
+.scrolltop:hover { background-color: var(--brand-primary-alt-color); color:#000!important;}
+.scrolltop .svg-icon { color:#000!important; }

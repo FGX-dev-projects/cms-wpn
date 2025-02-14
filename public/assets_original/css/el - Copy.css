@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
+
+:root{
+    --brand-primary-color: #fbfb01;
+    --brand-primary-alt-color: #f2f22c;
+    --secondary-green: rgba(60, 170, 51, .3);
+    --fc-event-border-color: #008c82;
+    --fc-event-bg-color: #008c82;
+    --fc-event-text-color: #32a52a;
+    --fc-event-border-color: #008c82;
+    --fc-event-bg-color: #008c82;
+}
+body, html{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.app-main{
+    background: #d4e1e9!important;
+   /* background: #dadada!important;*/
+}
+.bg-primary{ background-color: var(--brand-primary-alt-color)!important;}
+.btn.btn-light-primary{ color: var(--brand-primary-alt-color);}
+.badge-primary{ background-color: var(--brand-primary-alt-color); }
+.link-primary {
+    color: var(--brand-primary-alt-color)!important;
+}
+.form-check-custom.form-check-solid .form-check-input:checked {
+    background-color: var(--brand-primary-alt-color);
+}
+.btn.btn-light-primary .svg-icon, .btn.btn-light-primary i{ color: var(--brand-primary-color); }
+.text-brand-primary-color{color: var(--brand-primary-color);}
+.btn.btn-primary {
+    color: var(--kt-primary-inverse);
+    border-color: var(--brand-primary-color);
+    background-color: var(--brand-primary-color);
+}
+
+.btn.btn-primary:hover:not(.btn-active) {
+    color: var(--kt-primary-inverse);
+    border-color: var(--brand-primary-alt-color)!important;
+    background-color: var(--brand-primary-alt-color)!important;
+}
+.btn.btn-active-primary:hover:not(.btn-active){ background-color: var(--brand-primary-alt-color)!important;}
+.btn.btn-primary:focus:not(.btn-active){ background-color: var(--brand-primary-alt-color)!important; }
+.btn.btn-light-primary:hover:not(.btn-active){ background-color: var(--brand-primary-alt-color)!important;}
+.btn.btn-light-primary:active:not(.btn-active){ background-color: var(--brand-primary-alt-color)!important;}
+.accordion-button{ font-weight: 700;}
+.accordion-button:not(.collapsed){ color: var(--brand-primary-color);}
+.app-sidebar-logo {padding:50px;}
+[data-kt-app-layout=dark-sidebar] .app-sidebar .menu .menu-item .menu-link .menu-icon .svg-icon{ color:#fff!important;}
+[data-kt-app-layout=dark-sidebar] .app-sidebar {
+    /*background-color: var(--brand-primary-color);*/
+    border-right: 0!important;
+    background: var(--brand-primary-color);
+}
+[data-kt-app-layout=dark-sidebar] .app-sidebar .menu .menu-item .menu-link.active{
+    background-color: var(--brand-primary-alt-color);
+    font-weight: 600;
+}
+[data-kt-app-layout=dark-sidebar] .app-sidebar .menu .menu-item .menu-link {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+}
+[data-kt-app-layout=dark-sidebar] .app-sidebar .menu .menu-item .menu-link .menu-arrow:after {
+    background-color: #fff;
+}
+[data-kt-app-layout=dark-sidebar] .app-sidebar .menu .menu-item .menu-link .menu-bullet .bullet {
+    background-color: #fff;
+}
+[data-kt-app-layout=dark-sidebar] .app-sidebar .menu .menu-item .menu-link .menu-title {
+    color: #fff;
+}
+[data-kt-app-layout=dark-sidebar] .app-sidebar .menu .menu-item .menu-heading {
+    color: #fff!important;
+}
+[data-kt-app-layout=dark-sidebar] .app-sidebar .app-sidebar-logo {
+    border-bottom: 1px dashed #ffffff;
+}
+[data-kt-app-layout=dark-sidebar] .app-sidebar .btn-custom{
+    background: #fff;
+    color:#000;
+}
+[data-kt-app-layout=dark-sidebar] .app-sidebar .btn-custom:hover:not(.btn-active) {
+    color: #fff;
+    background-color: var(--brand-primary-alt-color)!important;
+}
+.app-header-menu .menu>.menu-item.here>.menu-link .menu-title {
+    color: var(--brand-primary-color);
+}
+.app-header-menu .menu .menu-item:not(.here) .menu-link:hover:not(.disabled):not(.active):not(.here) {
+    color: var(--brand-primary-color);
+}
+.nav-line-tabs .nav-item .nav-link.active, .nav-line-tabs .nav-item .nav-link:hover:not(.disabled){
+    border-color: var(--brand-primary-color);
+}
+.nav-line-tabs .nav-item .nav-link { color:#000; font-weight: 500;}
+.stepper.stepper-links .stepper-nav .stepper-item.current .stepper-title { color: var(--brand-primary-color); }
+.stepper.stepper-links .stepper-nav .stepper-item.current:after{ background-color: var(--brand-primary-color);}
+/*begin:: Live Shipments*/
+.live-shipments{
+    text-align: center;
+}
+.live-shipments p{
+    text-align: center;
+    font-size: 12px;
+    font-weight: 700;
+    margin-top: 15px;
+}
+.live-shipments img{display: block; margin: 10px auto 5px auto ; max-width: 50px;}
+.live-shipments .badge{
+    margin: -35px auto 0 auto;
+    display: block;
+    width: auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    /*margin-top: -24px;*/
+    background: transparent;
+    color:var(--brand-primary-color);
+    border: 1px dashed var(--kt-border-dashed-color);
+}
+.live-shipments .line{
+    height: 130px;
+    width: 1px;
+    background: var(--brand-primary-color);
+    margin:auto;
+}
+.shipment-table-container{
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    height: 100%;
+}
+/*end:: Live Shipments*/
+
+/*begin:: Current Nav Tabs*/
+.current-nav-tabs .text-active-primary.active i{
+    color: var(--brand-primary-color)!important;
+    border:none!important;
+}
+.current-nav-tabs .nav-item .nav-link i{ font-size: 2.5rem; }
+.nav-line-tabs .nav-item .nav-link{ border: none!important; }
+/*end:: Current Nav Tabs*/
+
+.nav-pills .nav-link{ text-align: left;}
+.nav-pills .nav-link.active{ background-color: var(--brand-primary-color); border-radius: 0;}
+.btn.btn-active-color-primary.active .svg-icon{ color: var(--brand-primary-color); }
+.scrolltop { background-color: var(--brand-primary-color);  }
+.scrolltop:hover { background-color: var(--brand-primary-alt-color);  }
+.canvasjs-chart-credit{ display: none;}
+.chart_dot{
+    width:10px;
+    height: 10px;
+    background: #000;
+    position: relative;
+    display: inline-block;
+    margin-right: 8px;
+}
+.nav-line-tabs .nav-item .nav-link.active, .nav-line-tabs .nav-item .nav-link:hover:not(.disabled) {
+    color: var(--brand-primary-color);
+}
+.form-check-input:checked {
+    background-color: var(--brand-primary-color);
+    border-color: var(--brand-primary-color);
+}
+.modal-fullscreen {
+    width: 98vw;
+    max-width: none;
+    height: 100%;
+    margin: auto;
+}
+.hide-mobile{ display: block;}
+
+@media screen and (max-width: 768px) {
+    .live-shipments{
+        min-width: 50%!important;
+        display: block;
+        float: left;
+        clear: bottom;
+        min-height: 130px;
+    }
+    .live-shipments .line{
+        display: none;
+    }
+    .live-shipments .badge{
+        display: none;
+    }
+    .hide-mobile{ display: none;}
+}
