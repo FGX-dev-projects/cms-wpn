@@ -67,6 +67,8 @@
                                         </th>
                                          <th class="min-w-125px act">Name</th>
                                         <th class="min-w-125px act">Invoice Number</th>
+                                        <th class="min-w-125px act">Tel</th>
+                                        <th class="min-w-125px act">Email</th>
                                         <th class="min-w-125px act">Member Invoiced?</th>
                                         <th class="min-w-125px act">Member Paid?</th>
                                         <th class="min-w-125px act">Created At</th>
@@ -94,6 +96,20 @@
                                                         <div class="badge badge-light up-date fw-bold">{{ $x->invoice_number }}</div>
                                                     @else
                                                         <div class="badge badge-light up-date fw-bold">No Invoice number </div>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if($x->cell)
+                                                        <div class="badge badge-light up-date fw-bold">{{ $x->cell }}</div>
+                                                    @else
+                                                        <div class="badge badge-light up-date fw-bold">No Tell</div>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if($x->email)
+                                                        <div class="badge badge-light up-date fw-bold">{{ $x->email }}</div>
+                                                    @else
+                                                        <div class="badge badge-light up-date fw-bold">No Email </div>
                                                     @endif
                                                 </td>
                                                 

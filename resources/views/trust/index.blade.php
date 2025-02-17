@@ -65,11 +65,14 @@
                                         <th class="min-w-50px act"> 
                                             <input type="checkbox" class=" form-check form-check-input" id="selectAll" onclick="toggleCheckboxes(this)"> <!-- Master Checkbox -->
                                         </th>
-                                        <th class="min-w-125px act">Name</th>
-                                        <th class="min-w-125px act">Last Edited</th>
-                                        <th class="min-w-125px act">Invoiced</th>
+                                         <th class="min-w-125px act">Name</th>
+                                        <th class="min-w-125px act">Invoice Number</th>
+                                        <th class="min-w-125px act">Tel</th>
+                                        <th class="min-w-125px act">Email</th>
+                                        <th class="min-w-125px act">Member Invoiced?</th>
+                                        <th class="min-w-125px act">Member Paid?</th>
                                         <th class="min-w-125px act">Created At</th>
-                                        <th class="text-end min-w-100px act">Actions</th>
+                                        <th class="text-end min-w-100px act" style="text-align: center !important;" >Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody class="fw-semibold">
@@ -79,51 +82,77 @@
                                         </tr>
                                     @else
                                         @foreach($data as $x)
-                                            <tr>
-                                                <td>
-                                                  <input type="checkbox" name="selected_members[]" style="" value="{{ $x->id }}" class="member-checkbox form-check form-check-input">
-                                                </td>
-                                                <td class="created">
-                                                   
-                                                        <span>{{ $x->name }}</span>
-                                                  
-                                                </td>
-                                                <td>
-                                                    <div class="badge badge-light up-date fw-bold">{{ \Carbon\Carbon::parse($x->updated_at)->diffForHumans() }}</div>
-                                                </td>
-                                                <td>
-                                                    @if($x->member_invoiced == 1)
-                                                        <div class="badge badge-light-success new-act fw-bold">Yes</div>
-                                                    @else
-                                                        <div class="badge badge-light-danger fw-bold">No</div>
-                                                    @endif
-                                                </td>
-                                                <td class="created">{{ \Carbon\Carbon::parse($x->created_at)->diffForHumans() }}</td>
-                                                <td class="text-end">
-                                                    <!-- Actions Dropdown -->
-                                                    <a href="#" class="btn actions-btn btn-sm" onclick="toggleActionsPopup(event, {{ $x->id }})">Actions
-                                                        <span class="svg-icon svg-icon-5 m-0">
-                                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                                                <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
-                                                            </svg>
-                                                        </span>
-                                                    </a>
-                                                    <!-- Actions Content -->
-                                                    <div class="actions-popup" id="actions-popup-{{ $x->id }}">
-                                                        <div class="menu-item">
-                                                            <a class="dd" href="{{ route('trust.edit', $x->id) }}">Edit Member</a>
-                                                        </div>
-                                                    </form>
-                                                        <div class="menu-item">
-                                                            <form action="{{ route('trust.destroy', $x->id) }}" method="POST" id="delete-form-{{ $x->id }}">
-                                                                {{ method_field('DELETE') }}
-                                                                @csrf
-                                                                <a href="javascript:void(0)" class="dd" onclick="document.getElementById('delete-form-{{ $x->id }}').submit();">Delete</a>
-                                                            </form>
-                                                        </div>
+                                        <tr>
+                                            <td>
+                                              <input type="checkbox" name="selected_members[]" style="" value="{{ $x->id }}" class="member-checkbox form-check form-check-input">
+                                            </td>
+                                            <td class="created">
+                                               
+                                                    <span>{{ $x->name }}</span>
+                                              
+                                            </td>
+                                            <td>
+                                                @if($x->invoice_number)
+                                                    <div class="badge badge-light up-date fw-bold">{{ $x->invoice_number }}</div>
+                                                @else
+                                                    <div class="badge badge-light up-date fw-bold">No Invoice number </div>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if($x->cell)
+                                                    <div class="badge badge-light up-date fw-bold">{{ $x->cell }}</div>
+                                                @else
+                                                    <div class="badge badge-light up-date fw-bold">No Tell</div>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if($x->email)
+                                                    <div class="badge badge-light up-date fw-bold">{{ $x->email }}</div>
+                                                @else
+                                                    <div class="badge badge-light up-date fw-bold">No Email </div>
+                                                @endif
+                                            </td>
+                                            
+                                            <td>
+                                                @if($x->member_invoiced == 1)
+                                                    <div class="badge badge-light-success new-act fw-bold">Yes</div>
+                                                @else
+                                                    <div class="badge badge-light-danger fw-bold">No</div>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if($x->paid == 1)
+                                                    <div class="badge badge-light-success new-act fw-bold">Yes</div>
+                                                @else
+                                                    <div class="badge badge-light-danger fw-bold">No</div>
+                                                @endif
+                                            </td>
+                                            <td class="created">{{ \Carbon\Carbon::parse($x->created_at)->diffForHumans() }}</td>
+                                            <td class="text-end">
+                                                <!-- Actions Dropdown -->
+                                                <a href="#" class="btn actions-btn btn-sm" onclick="toggleActionsPopup(event, {{ $x->id }})">Actions
+                                                    <span class="svg-icon svg-icon-5 m-0">
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                            <path d="M11.4343 12.7344L7.25 8.55005C6.83579 8.13583 6.16421 8.13584 5.75 8.55005C5.33579 8.96426 5.33579 9.63583 5.75 10.05L11.2929 15.5929C11.6834 15.9835 12.3166 15.9835 12.7071 15.5929L18.25 10.05C18.6642 9.63584 18.6642 8.96426 18.25 8.55005C17.8358 8.13584 17.1642 8.13584 16.75 8.55005L12.5657 12.7344C12.2533 13.0468 11.7467 13.0468 11.4343 12.7344Z" fill="currentColor" />
+                                                        </svg>
+                                                    </span>
+                                                </a>
+                                                <!-- Actions Content -->
+                                                <div class="actions-popup" id="actions-popup-{{ $x->id }}">
+                                                    <div class="menu-item">
+                                                        <a class="dd" href="{{ route('members.edit', $x->id) }}">Edit Member</a>
                                                     </div>
-                                                </td>
-                                            </tr>
+                                                </form>
+                                                    <div class="menu-item">
+                                                        <form action="{{ route('members.destroy', $x->id) }}" method="POST" id="delete-form-{{ $x->id }}">
+                                                            {{ method_field('DELETE') }}
+                                                            @csrf
+                                                            <a href="javascript:void(0)" class="dd" onclick="document.getElementById('delete-form-{{ $x->id }}').submit();">Delete</a>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
                                         @endforeach
                                     @endif
                                 </tbody>
