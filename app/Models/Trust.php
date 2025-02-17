@@ -24,6 +24,7 @@ class Trust extends Model
         'member_invoiced',
         'application_approved',
         'paid',
+        'cancel_invoice',
         'invoice_number'
     ];
 

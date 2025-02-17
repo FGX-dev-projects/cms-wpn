@@ -27,6 +27,7 @@ class CreateTrustsTable extends Migration
             $table->string('degree')->nullable();
             $table->integer('account_active')->default(1)->nullable();
              $table->integer('paid')->default(0)->nullable();
+             $table->integer('cancel_invoice')->default(0)->nullable();
             $table->integer('member_invoiced')->default(0)->nullable();
             $table->integer('application_approved')->default(1)->nullable();
             $table->string('invoice_number')->unique()->nullable();

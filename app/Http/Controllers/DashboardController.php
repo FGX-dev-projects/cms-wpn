@@ -133,6 +133,9 @@ class DashboardController extends Controller
             if (isset($item['application_approved'])) {
                 $item['application_approved'] = $item['application_approved'] == 1 ? 'Yes' : 'No';
             }
+            if (isset($item['cancel_invoice'])) {
+                $item['cancel_invoice'] = $item['cancel_invoice'] == 1 ? 'Yes' : 'No';
+            }
         
             // Format created_at and updated_at to only show the date
             if (isset($item['created_at'])) {

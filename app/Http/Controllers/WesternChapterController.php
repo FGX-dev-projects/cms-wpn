@@ -120,6 +120,7 @@ class WesternChapterController extends Controller
                         'invoice_email' => $record->invoice_email,
                         'read_constitution' => $record->read_constitution,
                         'paid' => $record->paid,
+                        'cancel_invoice' => $record->cancel_invoice,
                         'account_active' => $record->account_active,
                         'application_approved' => $record->application_approved,
                     ]);

@@ -38,6 +38,7 @@ class CreateWesternChaptersTable extends Migration
             $table->string('vat_number')->nullable();
             $table->string('invoice_email')->nullable();
             $table->integer('paid')->default(0)->nullable();
+            $table->integer('cancel_invoice')->default(0)->nullable();
             $table->integer('read_constitution')->default(1)->nullable();
             $table->integer('account_active')->default(1)->nullable();
             $table->integer('member_invoiced')->default(0)->nullable();

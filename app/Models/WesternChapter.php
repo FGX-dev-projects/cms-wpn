@@ -33,6 +33,7 @@ class WesternChapter extends Model
         'invoice_email',
         'read_constitution',
         'paid',
+        'cancel_invoice',
         'member_group_id',
         'account_active',
         'member_invoiced',

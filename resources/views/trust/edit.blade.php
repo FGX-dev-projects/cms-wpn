@@ -160,6 +160,20 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="fv-row mb-7">
+                            <label class="required  fs-6 mb-2">Cancel Invoice?</label>
+                            <div class="d-flex">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="cancel_invoice" value="1" {{ old('paid', $data->cancel_invoice) == 1 ? 'checked' : '' }}>
+                                    <label class="form-check-label text-nowrap"  >Yes</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="cancel_invoice"  value="0" {{ old('paid', $data->cancel_invoice) == 0 ? 'checked' : '' }}>
+                                    <label class="form-check-label text-nowrap" >No</label>
+                                </div>
+                            </div>
+                        </div>
                         
                         <!-- Application Approved -->
                         <div class="fv-row mb-7">

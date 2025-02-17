@@ -120,6 +120,7 @@ class KznChapterController extends Controller
                         'invoice_number'=>$record->invoice_number,
                         'invoice_email' => $record->invoice_email,
                         'read_constitution' => $record->read_constitution,
+                        'cancel_invoice' => $record->cancel_invoice,
                         'paid' => $record->paid,
                         'account_active' => $record->account_active,
                         'application_approved' => $record->application_approved,
