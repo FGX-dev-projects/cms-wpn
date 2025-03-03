@@ -390,7 +390,7 @@ padding: 4px 12px;
 
 .actions-popup {
     margin-top: 10px;
-    left: 50%;
+    left: -3%;
     display: none;
     position: relative;
     background-color: white;
