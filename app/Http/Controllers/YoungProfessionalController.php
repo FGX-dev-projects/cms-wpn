@@ -168,7 +168,10 @@ class YoungProfessionalController extends Controller
                     $formattedNumber = str_pad($nextNumber, 2, '0', STR_PAD_LEFT);
                     $invoiceNumber = "{$yearMonth}-{$formattedNumber}";
 
-                    $member->update(['invoice_number' => $invoiceNumber]);
+                    $member->update([
+                        'invoice_number' => $invoiceNumber,
+                        'invoice_date' => now()->toDateString(), // ✅ Set invoice date when a new invoice is created
+                    ]);
                 }
 
                 // Generate PDF using DomPDF

@@ -66,11 +66,12 @@
                                             <input type="checkbox" class=" form-check form-check-input" id="selectAll" onclick="toggleCheckboxes(this)"> <!-- Master Checkbox -->
                                         </th>
                                          <th class="min-w-125px act">Name</th>
-                                        <th class="min-w-125px act">Invoice Number</th>
+                                        <th class="min-w-125px act">Invoice Number / Issue Date</th>
                                         <th class="min-w-125px act">Tel</th>
                                         <th class="min-w-125px act">Email</th>
                                         <th class="min-w-125px act">Member Invoiced?</th>
                                         <th class="min-w-125px act">Member Paid?</th>
+                                        <th class="min-w-125px act">Cancelled?</th>
                                         <th class="min-w-125px act">Created At</th>
                                         <th class="text-end min-w-100px act" style="text-align: center !important;" >Actions</th>
                                     </tr>
@@ -87,17 +88,20 @@
                                                   <input type="checkbox" name="selected_members[]" style="" value="{{ $x->id }}" class="member-checkbox form-check form-check-input">
                                                 </td>
                                                 <td class="created">
-                                                   
                                                         <span>{{ $x->name }}</span>
                                                   
                                                 </td>
                                                 <td>
                                                     @if($x->invoice_number)
-                                                        <div class="badge badge-light up-date fw-bold">{{ $x->invoice_number }}</div>
+                                                        <div class="badge badge-light up-date fw-bold">
+                                                            {{ $x->invoice_number }} 
+                                                            <span class="text-muted"> / {{ $x->invoice_date ?? 'No Date' }}</span>
+                                                        </div>
                                                     @else
-                                                        <div class="badge badge-light up-date fw-bold">No Invoice number </div>
+                                                        <div class="badge badge-light up-date fw-bold">No Invoice Number</div>
                                                     @endif
                                                 </td>
+                                                
                                                 <td>
                                                     @if($x->cell)
                                                         <div class="badge badge-light up-date fw-bold">{{ $x->cell }}</div>
@@ -122,6 +126,13 @@
                                                 </td>
                                                 <td>
                                                     @if($x->paid == 1)
+                                                        <div class="badge badge-light-success new-act fw-bold">Yes</div>
+                                                    @else
+                                                        <div class="badge badge-light-danger fw-bold">No</div>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if($x->cancel_invoice == 1)
                                                         <div class="badge badge-light-success new-act fw-bold">Yes</div>
                                                     @else
                                                         <div class="badge badge-light-danger fw-bold">No</div>

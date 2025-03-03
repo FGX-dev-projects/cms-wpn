@@ -140,11 +140,11 @@
                                                 <!-- Actions Content -->
                                                 <div class="actions-popup" id="actions-popup-{{ $x->id }}">
                                                     <div class="menu-item">
-                                                        <a class="dd" href="{{ route('members.edit', $x->id) }}">Edit Member</a>
+                                                        <a class="dd" href="{{ route('capepen.edit', $x->id) }}">Edit Member</a>
                                                     </div>
                                                 </form>
                                                     <div class="menu-item">
-                                                        <form action="{{ route('members.destroy', $x->id) }}" method="POST" id="delete-form-{{ $x->id }}">
+                                                        <form action="{{ route('capepen.destroy', $x->id) }}" method="POST" id="delete-form-{{ $x->id }}">
                                                             {{ method_field('DELETE') }}
                                                             @csrf
                                                             <a href="javascript:void(0)" class="dd" onclick="document.getElementById('delete-form-{{ $x->id }}').submit();">Delete</a>

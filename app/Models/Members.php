@@ -33,6 +33,7 @@ class Members extends Model
         'invoice_email',
         'read_constitution',
         'paid',
+        'invoice_date',
         'cancel_invoice',
         'member_group_id',
         'account_active',

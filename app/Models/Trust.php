@@ -23,6 +23,7 @@ class Trust extends Model
         'account_active',
         'member_invoiced',
         'application_approved',
+        'invoice_date',
         'paid',
         'cancel_invoice',
         'invoice_number'

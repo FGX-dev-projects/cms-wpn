@@ -147,73 +147,78 @@ class MembersController extends Controller
         return redirect()->route('members.index');
     }
     public function sendInvoices(Request $request)
-{
-    // Validate that selected_members exists and is an array
-    $validated = $request->validate([
-        'selected_members' => 'required|array',
-        'selected_members.*' => 'exists:members,id',
-    ]);
-
-    $members = Members::whereIn('id', $validated['selected_members'])->get();
-
-    foreach ($members as $member) {
-        if ($member->invoice_email) {
-            try {
-                // Generate invoice number if not already set
-                if (!$member->invoice_number) {
-                    $yearMonth = now()->format('Ymd');
-                    $latestInvoice = Members::where('invoice_number', 'LIKE', "{$yearMonth}-%")
-                        ->orderByDesc('invoice_number')
-                        ->first();
-
-                    $nextNumber = $latestInvoice ? intval(substr($latestInvoice->invoice_number, -2)) + 1 : 1;
-                    $formattedNumber = str_pad($nextNumber, 2, '0', STR_PAD_LEFT);
-                    $invoiceNumber = "{$yearMonth}-{$formattedNumber}";
-
-                    $member->update(['invoice_number' => $invoiceNumber]);
-                }
-
-                // Generate PDF using DomPDF
-                $options = new Options();
-                $options->set('isHtml5ParserEnabled', true);
-                $options->set('isRemoteEnabled', true);
-
-                $dompdf = new Dompdf($options);
-                $html = view('emails.invoice', compact('member'))->render();
-                $dompdf->loadHtml($html);
-                $dompdf->setPaper('A4', 'portrait');
-                $dompdf->render();
-
-                // Save PDF to a temporary location
-                $fileName = "invoice_{$member->invoice_number}.pdf";
-                $pdfOutput = $dompdf->output();
-                $filePath = storage_path("app/public/invoices/{$fileName}");
-                Storage::put("public/invoices/{$fileName}", $pdfOutput);
-
-                // Send invoice email using the InvoiceMail Mailable
-                Mail::send('emails.invoice', ['member' => $member], function ($message) use ($member, $filePath, $fileName) {
-                    $message->to($member->invoice_email)
-                        ->subject('Your Invoice')
-                        ->attach($filePath, [
-                            'as' => $fileName,
-                            'mime' => 'application/pdf',
+    {
+        // Validate that selected_members exists and is an array
+        $validated = $request->validate([
+            'selected_members' => 'required|array',
+            'selected_members.*' => 'exists:members,id',
+        ]);
+    
+        $members = Members::whereIn('id', $validated['selected_members'])->get();
+    
+        foreach ($members as $member) {
+            if ($member->invoice_email) {
+                try {
+                    // Generate invoice number if not already set
+                    if (!$member->invoice_number) {
+                        $yearMonth = now()->format('Ymd');
+                        $latestInvoice = Members::where('invoice_number', 'LIKE', "{$yearMonth}-%")
+                            ->orderByDesc('invoice_number')
+                            ->first();
+    
+                        $nextNumber = $latestInvoice ? intval(substr($latestInvoice->invoice_number, -2)) + 1 : 1;
+                        $formattedNumber = str_pad($nextNumber, 2, '0', STR_PAD_LEFT);
+                        $invoiceNumber = "{$yearMonth}-{$formattedNumber}";
+    
+                        // Update invoice number and set invoice date
+                        $member->update([
+                            'invoice_number' => $invoiceNumber,
+                            'invoice_date' => now()->toDateString(), // ✅ Set invoice date when a new invoice is created
                         ]);
-                });
-
-                // Update the 'member_invoiced' field to 1
-                $member->update(['member_invoiced' => 1]);
-
-                // Delete the PDF after sending (optional)
-                Storage::delete("public/invoices/{$fileName}");
-            } catch (\Exception $e) {
-                // Log the error or handle it as needed
-                \Log::error("Failed to send invoice to member ID: {$member->id}, Error: {$e->getMessage()}");
+                    }
+    
+                    // Generate PDF using DomPDF
+                    $options = new Options();
+                    $options->set('isHtml5ParserEnabled', true);
+                    $options->set('isRemoteEnabled', true);
+    
+                    $dompdf = new Dompdf($options);
+                    $html = view('emails.invoice', compact('member'))->render();
+                    $dompdf->loadHtml($html);
+                    $dompdf->setPaper('A4', 'portrait');
+                    $dompdf->render();
+    
+                    // Save PDF to a temporary location
+                    $fileName = "invoice_{$member->invoice_number}.pdf";
+                    $pdfOutput = $dompdf->output();
+                    $filePath = storage_path("app/public/invoices/{$fileName}");
+                    Storage::put("public/invoices/{$fileName}", $pdfOutput);
+    
+                    // Send invoice email using the InvoiceMail Mailable
+                    Mail::send('emails.invoice', ['member' => $member], function ($message) use ($member, $filePath, $fileName) {
+                        $message->to($member->invoice_email)
+                            ->subject('Your Invoice')
+                            ->attach($filePath, [
+                                'as' => $fileName,
+                                'mime' => 'application/pdf',
+                            ]);
+                    });
+    
+                    // Update the 'member_invoiced' field to 1
+                    $member->update(['member_invoiced' => 1]);
+    
+                    // Delete the PDF after sending (optional)
+                    Storage::delete("public/invoices/{$fileName}");
+                } catch (\Exception $e) {
+                    // Log the error or handle it as needed
+                    \Log::error("Failed to send invoice to member ID: {$member->id}, Error: {$e->getMessage()}");
+                }
             }
         }
+    
+        return back()->with('success', 'Invoices sent successfully');
     }
-
-    return back()->with('success', 'Invoices sent successfully');
-}
+    
 
     
 }
